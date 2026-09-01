@@ -5,7 +5,7 @@ import type { RootState } from "@/store";
 import { auth } from "@/firebase";
 import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signInAnonymously, createUserWithEmailAndPassword, sendPasswordResetEmail, } from "firebase/auth";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 
 export default function AuthModal() {
 
@@ -14,7 +14,7 @@ export default function AuthModal() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
-
+    const router = useRouter();
 
      const isOpen = useSelector(
     (state: RootState) => state.authModal.isOpen
@@ -27,6 +27,7 @@ export default function AuthModal() {
   try {
     await signInAnonymously(auth);
     dispatch(closeModal());
+    router.push("/for-you");
   } catch (error) {
     console.error(error);
   }

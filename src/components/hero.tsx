@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { openModal } from "@/authModalSlice";
+import { useDispatch } from "react-redux";
 
 export default function Hero() {
+  const dispatch = useDispatch();
   return (
     <section>
       <div className="mx-auto flex max-w-[1070px] items-center justify-between px-6 py-10">
@@ -19,7 +24,8 @@ export default function Hero() {
             and even people who don&apos;t like to read.
           </p>
 
-          <button className="mt-8 rounded-md bg-[#2bd97c] px-10 py-3 font-medium text-[#032b41] transition hover:bg-[#20ba68]">
+          <button className="mt-8 rounded-md bg-[#2bd97c] px-10 py-3 font-medium text-[#032b41] transition hover:bg-[#20ba68]"
+          onClick={() => dispatch(openModal())}>
             Login
           </button>
         </div>

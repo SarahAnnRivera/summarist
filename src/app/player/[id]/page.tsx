@@ -123,14 +123,21 @@ const skipForward = () => {
   <div className="flex min-w-[420px] items-center gap-4">
     <span className="text-sm">{formatTime(currentTime)}</span>
 
-    <input
-      type="range"
-      min="0"
-      max="100"
-      value="0"
-      className="w-full"
-      readOnly
-    />
+   <input
+  type="range"
+  min="0"
+  max={duration}
+  value={currentTime}
+  onChange={(e) => {
+    const newTime = Number(e.target.value);
+
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  }}
+  className="w-full"
+/>
 
     <span className="text-sm">{formatTime(duration)}</span>
   </div>

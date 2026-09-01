@@ -61,6 +61,23 @@ if (!book) {
   return <p>Book not found.</p>;
 }
 
+const handleAddToLibrary = () => {
+  if (!book) return;
+
+  const savedBooks = JSON.parse(
+    localStorage.getItem("savedBooks") || "[]"
+  );
+
+  if (!savedBooks.includes(book.id)) {
+    const updatedBooks = [...savedBooks, book.id];
+
+    localStorage.setItem(
+      "savedBooks",
+      JSON.stringify(updatedBooks)
+    );
+  }
+};
+
 return (
   <div className="min-h-screen bg-white text-[#032b41]">
     <Sidebar />
@@ -112,7 +129,7 @@ return (
       </button>
     </div>
 
-    <button className="mt-6 font-medium text-[#0365f2]">
+    <button onClick={handleAddToLibrary} className="mt-6 font-medium text-[#0365f2]">
       ♧ &nbsp; Add title to My Library
     </button>
   </div>

@@ -38,14 +38,14 @@ export default function Footer() {
   return (
     <footer className="bg-[#f1f6f4] px-6 py-16 text-[#032b41]">
       <div className="mx-auto max-w-[1070px]">
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4 cursor-not-allowed">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="mb-4 text-lg font-bold">
                 {section.title}
               </h3>
 
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col gap-2 cursor-not-allowed">
                 {section.links.map((link) => (
                   <li key={link}>
                     <Link

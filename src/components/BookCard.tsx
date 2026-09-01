@@ -3,9 +3,10 @@ import Link from "next/link";
 
 type BookCardProps = {
   book: Book;
+   onRemove?: () => void;
 };
 
-export default function BookCard({ book }: BookCardProps) {
+export default function BookCard({ book, onRemove }: BookCardProps) {
   return (
     <Link href={`/book/${book.id}`}className="group block w-[150px] shrink-0" >
     <div className="w-full transition-shadow duration-300 group-hover:shadow-lg">

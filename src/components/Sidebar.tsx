@@ -1,4 +1,14 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import { useDispatch } from "react-redux";
+
+import { auth } from "@/firebase";
+import { openModal } from "@/authModalSlice";
+
 import Image from "next/image";
+import Link from "next/link";
 
  type SidebarProps = {
   showReaderControls?: boolean; 
@@ -12,6 +22,17 @@ export default function Sidebar({
   compactForPlayer = false,
   onFontSizeChange,
 }: SidebarProps) {
+
+ const [user, setUser] = useState<User | null>(null);
+const dispatch = useDispatch();
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  return unsubscribe;
+}, []); 
 
 
 
@@ -30,10 +51,21 @@ export default function Sidebar({
 
       {/* Main Navigation */}
       <nav className="flex flex-col">
-        <div className="px-5 py-4">For you</div>
-        <div className="px-5 py-4">My Library</div>
-        <div className="px-5 py-4">Highlights</div>
-        <div className="px-5 py-4">Search</div>
+        <Link
+  href="/for-you"
+  className="cursor-pointer px-5 py-4"
+>
+  For you
+</Link>
+
+<Link
+  href="/library"
+  className="cursor-pointer px-5 py-4"
+>
+  My Library
+</Link>
+        <div className="px-5 py-4 cursor-not-allowed">Highlights</div>
+        <div className="px-5 py-4 cursor-not-allowed">Search</div>
         {showReaderControls && (
   <div className="flex items-end gap-4 px-3 py-4">
   <button className="text-sm"
@@ -54,9 +86,25 @@ export default function Sidebar({
 
       {/* Bottom Navigation */}
       <div className={compactForPlayer ? "mb-24 mt-auto" : "mt-auto"}>
-        <div className="px-5 py-4">Settings</div>
-        <div className="px-5 py-4">Help & Support</div>
-        <div className="px-5 py-4">Login</div>
+        <Link href="/settings" className="cursor-pointer px-5 py-4">
+  Settings
+</Link>
+        <div className="px-5 py-4 cursor-not-allowed">Help & Support</div>
+       {user ? (
+  <button
+    onClick={() => signOut(auth)}
+    className="w-full cursor-pointer px-5 py-4 text-left"
+  >
+    Logout
+  </button>
+) : (
+  <button
+    onClick={() => dispatch(openModal())}
+    className="w-full cursor-pointer px-5 py-4 text-left"
+  >
+    Login
+  </button>
+)}
       </div>
     </aside>
   );
