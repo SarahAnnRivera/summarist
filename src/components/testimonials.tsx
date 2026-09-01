@@ -1,4 +1,10 @@
+"use client";
+
+import { openModal } from "@/authModalSlice";
+import { useDispatch } from "react-redux";
+
 export default function Testimonials() {
+  const dispatch = useDispatch();
   const testimonials = [
     {
       name: "Hanna M.",
@@ -49,7 +55,8 @@ export default function Testimonials() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <button className="w-full max-w-[400px] rounded bg-[#2bd97c] py-3 text-lg text-[#032b41] transition hover:bg-[#20ba68]">
+          <button onClick={() => dispatch(openModal())}
+          className="w-full max-w-[400px] rounded bg-[#2bd97c] py-3 text-lg text-[#032b41] transition hover:bg-[#20ba68]">
             Login
           </button>
         </div>

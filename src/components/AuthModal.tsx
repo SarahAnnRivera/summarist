@@ -23,7 +23,6 @@ export default function AuthModal() {
   if (!isOpen) return null;
 
   const handleGuestLogin = async () => {
-     console.log("guest login clicked");
   try {
     await signInAnonymously(auth);
     dispatch(closeModal());

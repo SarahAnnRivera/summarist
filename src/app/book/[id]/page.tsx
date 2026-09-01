@@ -23,8 +23,6 @@ export default function BookPage() {
     const response = await axios.get(
       `https://us-central1-summaristt.cloudfunctions.net/getBook?id=${id}`
     );
-console.log("BOOK DETAIL:", response.data);
-    console.log("API:", response.data);
     setBook(response.data);
     setLoading(false);
   } catch (error) {
