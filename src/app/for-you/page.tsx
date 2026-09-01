@@ -111,10 +111,10 @@ useEffect(() => {
     <div className="min-h-screen bg-white text-[#032b41]">
       <Sidebar />
 
-      <main className="ml-[200px]">
+      <main className="md:ml-[200px]">
         <SearchBar />
 
-        <div className="mx-auto max-w-[1070px] px-6 py-8">
+        <div className="mx-auto max-w-[1070px] px-4 py-8 md:px-6">
           
           <section className="mb-10">
             <h2 className="mb-4 text-[22px] font-bold">
@@ -124,9 +124,9 @@ useEffect(() => {
             {loading ? (
                 <p>Loading...</p>
 ) : (
-  <div className="flex max-w-[700px] items-center gap-8 rounded-md bg-[#fff3d7] p-6">
+  <div className="flex max-w-[700px] flex-col items-center gap-6 rounded-md bg-[#fff3d7] p-4 md:flex-row md:gap-8 md:p-6">
 
-    <div className="self-stretch flex items-start border-r border-gray-300 pr-8">
+  <div className="flex self-stretch items-start border-b border-gray-300 pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-8">
      <p className="text-left text-sm leading-6 text-[#394547]">
       {selectedBook?.subTitle}
     </p>

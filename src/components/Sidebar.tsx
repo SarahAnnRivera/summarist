@@ -37,7 +37,7 @@ useEffect(() => {
 
 
   return (
-    <aside className="fixed left-0 top-0 flex h-screen w-[200px] flex-col border-r border-gray-200 bg-white">
+    <aside className="hidden md:flex fixed left-0 top-0 flex h-screen w-[200px] flex-col border-r border-gray-200 bg-white">
       
       {/* Logo */}
       <div className="px-5 py-6">
