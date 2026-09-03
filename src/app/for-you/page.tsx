@@ -57,6 +57,7 @@ export default function ForYouPage() {
     const response = await axios.get(
       "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=recommended"
     );
+    
     setRecommendedBooks(response.data);
   } catch (error) {
     console.log(error);

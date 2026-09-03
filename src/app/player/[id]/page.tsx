@@ -70,9 +70,9 @@ const skipForward = () => {
 
     return (
     <div className="min-h-screen bg-white text-[#032b41]">
-      <Sidebar showReaderControls onFontSizeChange={setFontSize} compactForPlayer/>
+      <Sidebar showReaderControls onFontSizeChange={setFontSize} compactForPlayer fontSize={fontSize}/>
 
-      <main className="ml-[200px] pb-28">
+      <main className="md:ml-[200px] pb-28">
         <SearchBar />
 
         <div className="mx-auto max-w-[850px] px-6 py-10">
@@ -93,23 +93,23 @@ const skipForward = () => {
           </div>
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#032b41] bg-[#032b41] px-8 py-4 text-white">
-          <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8">
+        <div className="fixed bottom-0 left-0 right-0 z-50 flex flex-col gap-4 bg-[#032b41] px-4 py-4 text-white md:flex-row md:items-center md:justify-between md:px-6">
+          <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-4 md:flex-row md:justify-between md:gap-8">
 
-  <div className="flex items-center gap-4">
+  <div className="flex w-full items-center gap-4 md:w-auto">
     <img
       src={book.imageLink}
       alt={book.title}
       className="h-14 w-10 object-cover"
     />
 
-    <div>
-      <p className="font-medium">{book.title}</p>
+    <div className="min-w-0 flex-1">
+      <p className="truncate font-medium">{book.title}</p>
       <p className="text-sm opacity-80">{book.author}</p>
     </div>
   </div>
 
-  <div className="flex items-center gap-5">
+  <div className="flex w-full items-center justify-center gap-4 md:w-auto">
     <button onClick={skipBackward}>-10</button>
 
     <button onClick={togglePlay}
@@ -120,7 +120,7 @@ const skipForward = () => {
     <button onClick={skipForward}>+10</button>
   </div>
 
-  <div className="flex min-w-[420px] items-center gap-4">
+  <div className="flex w-full items-center gap-3 md:max-w-[420px]">
     <span className="text-sm">{formatTime(currentTime)}</span>
 
    <input

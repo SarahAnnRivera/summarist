@@ -80,11 +80,11 @@ return (
   <div className="min-h-screen bg-white text-[#032b41]">
     <Sidebar />
 
-    <main className="ml-[200px]">
+    <main className="md:ml-[200px]">
       <SearchBar />
 
       <div className="mx-auto max-w-[1070px] px-6 py-8">
-        <div className="flex justify-between gap-12">
+        <div className="flex flex-col gap-8 md:flex-row md:justify-between md:gap-12">
   {/* LEFT */}
   <div className="max-w-[650px] flex-1">
     <h1 className="text-[32px] font-bold leading-tight">
@@ -115,25 +115,26 @@ return (
     <div className="my-5 border-t border-gray-200" />
 
     {/* ACTIONS */}
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-4 sm:flex-row">
       <button onClick={handleReadListen}
-      className="min-w-[175px] rounded bg-[#032b41] px-6 py-3 font-medium text-white">
+      className="w-full rounded bg-[#032b41] px-6 py-3 font-medium text-white sm:min-w-[175px] sm:w-auto">
         ▣ &nbsp; Read
       </button>
 
       <button onClick={handleReadListen}
-       className="min-w-[175px] rounded bg-[#032b41] px-6 py-3 font-medium text-white">
+       className="w-full rounded bg-[#032b41] px-6 py-3 font-medium text-white sm:min-w-[175px] sm:w-auto">
         🎙 &nbsp; Listen
       </button>
     </div>
 
-    <button onClick={handleAddToLibrary} className="mt-6 font-medium text-[#0365f2]">
+    <button onClick={handleAddToLibrary} 
+    className="mt-6 font-medium text-[#0365f2]">
       ♧ &nbsp; Add title to My Library
     </button>
   </div>
 
   {/* RIGHT */}
-  <div className="shrink-0">
+  <div className="mx-auto w-[200px] sm:w-[250px] md:mx-0">
     <img
       src={book.imageLink}
       alt={book.title}
@@ -146,7 +147,7 @@ return (
     What's it about?
   </h2>
 
-  <div className="mt-5 flex gap-4">
+  <div className="mt-5 flex flex-wrap gap-4">
     {book.tags.map((tag) => (
       <div
         key={tag}
