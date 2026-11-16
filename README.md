@@ -53,3 +53,69 @@ It demonstrates practical experience connecting multiple application features an
 **Sarah Rivera Balcazar**
 
 [GitHub](https://github.com/SarahAnnRivera) | [Portfolio](https://portfolio-resume-one-psi.vercel.app/)
+
+
+## Prerequisites & Installation
+
+### Prerequisites
+
+- Node.js 20.9 or later (Next.js 16 minimum)
+- npm
+- Git
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/SarahAnnRivera/summarist.git
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd summarist
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+
+4. Create a `.env.local` file in the project root
+   using `.env.example` as a template.
+
+   Add your own Firebase and API configuration values.
+
+   Some features, including authentication and
+   payments, require configuration in the
+   corresponding service dashboards.
+
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open the application in your browser:
+
+   http://localhost:3000
+
+### Available Scripts
+
+- `npm run dev` — Start the development server
+- `npm run build` — Create a production build
+- `npm start` — Run the production server after building
+- `npm run lint` — Run ESLint
+
+### Configuration Notes
+
+Firebase Authentication and Stripe functionality
+may require project-specific configuration.
+
+Never commit private API keys or secret credentials
+to source control.
+
